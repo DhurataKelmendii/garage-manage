@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React testtttttttt
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+import React from 'react';  
+import AddCar from './Car/AddCar';  
+import CarsList from './Car/CarsList';  
+import EditCar from './Car/EditCar';  
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';  
+import './App.css';  
+function App() {  
+  return (  
+    <Router>  
+      <div className="container">  
+        <nav className="navbar navbar-expand-lg navheader">  
+          <div className="collapse navbar-collapse" >  
+            <ul className="navbar-nav mr-auto">  
+              <li className="nav-item">  
+                <Link to={'/AddCar'} className="nav-link">Add Car</Link>  
+              </li>  
+              <li className="nav-item">  
+                <Link to={'/CarsList'} className="nav-link">Car List</Link>  
+              </li>  
+              <li className="nav-item">  
+                <Link to={'/EditCar'} className="nav-link">Edit Car</Link>  
+              </li>  
+            </ul>  
+          </div>  
+        </nav> <br />  
+        <Switch>  
+          <Route exact path='/AddCar' component={AddCar} />  
+          <Route path='/EditCar/:id' component={EditCar} />
+          <Route path='/CarsList' component={CarsList} />  
+        </Switch>  
+      </div>  
+    </Router>  
+  );  
+}  
+  
+export default App; 
