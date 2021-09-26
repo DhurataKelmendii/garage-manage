@@ -111,6 +111,7 @@ function App() {
         <Route exact path="/AddCar" component={AddCar} />
         <Route path="/EditCar/:id" component={EditCar} />
         <Route path="/CarsList" component={CarsList} />
+        <Route exact path="/AddGarage" component={AddGarage} />
       </Switch>
     </Router>
   );
