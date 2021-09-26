@@ -50,20 +50,20 @@ this.props.history.push('/CarsList')
 }
 
         
-test = () =>{
-  axios.get('http://localhost:65424/Api/Car/CarsList')  
-        .then(response => { 
-          console.log('Test dhurata'); 
-          console.log(response); 
+// test = () =>{
+//   axios.get('http://localhost:65424/Api/Car/CarsList')  
+//         .then(response => { 
+//           console.log('Test dhurata'); 
+//           console.log(response); 
 
-          // this.setState({ business: response.data });  
-          // debugger;  
+//           // this.setState({ business: response.data });  
+//           // debugger;  
   
-        })  
-        .catch(function (error) {  
-          console.log(error);  
-        })  
-}
+//         })  
+//         .catch(function (error) {  
+//           console.log(error);  
+//         })  
+// }
 AddCar2= () =>{
   
 fetch('http://localhost:65424/Api/Car/Create/', {
