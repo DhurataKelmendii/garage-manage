@@ -29,11 +29,10 @@ export class EditEmpModal extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        EmployeeId: event.target.EmployeeId.value,
-        EmployeeName: event.target.EmployeeName.value,
-        Department: event.target.Department.value,
-        DateOfJoining: event.target.DateOfJoining.value,
-        PhotoFileName: this.photofilename,
+        Id: event.target.Id.value,
+        Name: event.target.Name.value,
+        Gender: event.target.Gender.value,
+        Email: event.target.Email.value,
       }),
     })
       .then((res) => res.json())
@@ -90,51 +89,51 @@ export class EditEmpModal extends Component {
             <Row>
               <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="EmployeeId">
+                  <Form.Group controlId="Id">
                     <Form.Label>EmployeeId</Form.Label>
                     <Form.Control
                       type="text"
-                      name="EmployeeId"
+                      name="Id"
                       required
-                      placeholder="EmployeeId"
+                      placeholder="Id"
                       disabled
                       defaultValue={this.props.empid}
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="EmployeeName">
-                    <Form.Label>EmployeeName</Form.Label>
+                  <Form.Group controlId="Name">
+                    <Form.Label>Name</Form.Label>
                     <Form.Control
                       type="text"
-                      name="EmployeeName"
+                      name="Name"
                       required
                       defaultValue={this.props.empname}
-                      placeholder="EmployeeName"
+                      placeholder="Name"
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="Department">
-                    <Form.Label>Department</Form.Label>
-                    <Form.Control as="select" defaultValue={this.props.depmt}>
-                      {this.state.deps.map((dep) => (
-                        <option key={dep.DepartmentId}>
-                          {dep.DepartmentName}
-                        </option>
-                      ))}
-                    </Form.Control>
-                  </Form.Group>
-
-                  <Form.Group controlId="DateOfJoining">
-                    <Form.Label>DateOfJoining</Form.Label>
+                  
+                  <Form.Group controlId="Gender">
+                    <Form.Label>Gender</Form.Label>
                     <Form.Control
                       type="date"
-                      name="DateOfJoining"
+                      name="Gender"
                       required
-                      placeholder="DateOfJoining"
-                      defaultValue={this.props.doj}
+                      placeholder="Gender"
+                      defaultValue={this.props.Gender}
                     />
                   </Form.Group>
 
+                  <Form.Group controlId="Email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="date"
+                      name="Email"
+                      required
+                      placeholder="Email"
+                      defaultValue={this.props.Email}
+                    />
+                  </Form.Group>
                   <Form.Group>
                     <Button variant="primary" type="submit">
                       Update Employee

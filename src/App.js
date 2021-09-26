@@ -3,6 +3,7 @@ import AddGarage from "./Garage/AddGarage";
 import AddCar from "./Car/AddCar";
 import CarsList from "./Car/CarsList";
 import EditCar from "./Car/EditCar";
+import {Employee} from "./Employee/Employee";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 function App() {
@@ -33,7 +34,7 @@ function App() {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  Link
+                  Employee
                 </a>
               </li>
               <li class="nav-item dropdown">
@@ -80,12 +81,39 @@ function App() {
                   </Link>
                   <li className="nav-item">
                     <Link to={"/AddCar"} className="nav-link">
-                      Add Car
+                     Edit Garage
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link to={"/EditCar"} className="nav-link">
-                      Edit Car
+                      Garage List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Employee
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <Link to={"/AddEmpModel"} className="nav-link">
+                    Add Employee
+                  </Link>
+                  <li className="nav-item">
+                    <Link to={"/Employee"} className="nav-link">
+                     Employee List
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/EditEmpModel"} className="nav-link">
+                      Edit Employee
                     </Link>
                   </li>
                 </ul>
@@ -112,6 +140,7 @@ function App() {
         <Route path="/EditCar/:id" component={EditCar} />
         <Route path="/CarsList" component={CarsList} />
         <Route exact path="/AddGarage" component={AddGarage} />
+        <Route path="/employee" component={Employee} />
       </Switch>
     </Router>
   );

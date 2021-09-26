@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
-import { AddEmpModal } from "../Employee/AddEmpModal";
-import { EditEmpModal } from "../Employee/EditEmpModal";
+import { AddEmpModal } from "./Employee/AddEmpModal";
+import { EditEmpModal } from "./Employee/EditEmpModal";
 
 export class Employee extends Component {
   constructor(props) {
