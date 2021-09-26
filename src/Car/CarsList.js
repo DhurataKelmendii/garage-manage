@@ -8,18 +8,19 @@ export default class CarsList extends Component {
       super(props);  
       this.state = {business: []};  
     }  
-    // componentDidMount(){  
-    //   debugger;  
-    //   axios.get('http://localhost:65424/Api/Car/CarsList')  
-    //     .then(response => {  
-    //       this.setState({ business: response.data });  
-    //       debugger;  
+    componentDidMount(){  
+      debugger;  
+      axios.get('http://localhost:65424/Api/Car/CarsList')  
+        .then(response => {  
+          this.setState({ business: response.data });  
+          debugger;  
   
-    //     })  
-    //     .catch(function (error) {  
-    //       console.log(error);  
-    //     })  
-    // }  
+        })  
+        .catch(function (error) {  
+          console.log(error);  
+        })  
+        
+    }  
       
     tabRow(){  
       return this.state.business.map(function(object, i){  
