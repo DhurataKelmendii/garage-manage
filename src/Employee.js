@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
-import { AddEmpModal } from "./Employee/AddEmpModal";
-import { EditEmpModal } from "./Employee/EditEmpModal";
+import { AddEmpModel } from "./AddEmpModel";
+import { EditEmpModel } from "./EditEmpModel";
 
 export class Employee extends Component {
   constructor(props) {
@@ -87,7 +87,7 @@ export class Employee extends Component {
                       Delete
                     </Button>
 
-                    <EditEmpModal
+                    <EditEmpModel
                       show={this.state.editModalShow}
                       onHide={editModalClose}
                       empid={empid}
@@ -110,7 +110,7 @@ export class Employee extends Component {
             Add Employee
           </Button>
 
-          <AddEmpModal show={this.state.addModalShow} onHide={addModalClose} />
+          <AddEmpModel show={this.state.addModalShow} onHide={addModalClose} />
         </ButtonToolbar>
       </div>
     );

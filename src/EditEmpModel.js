@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Row, Col, Form, Image } from "react-bootstrap";
 
-export class EditEmpModal extends Component {
+export class EditEmpModel extends Component {
   constructor(props) {
     super(props);
     this.state = { deps: [] };
@@ -112,7 +112,6 @@ export class EditEmpModal extends Component {
                     />
                   </Form.Group>
 
-                  
                   <Form.Group controlId="Gender">
                     <Form.Label>Gender</Form.Label>
                     <Form.Control

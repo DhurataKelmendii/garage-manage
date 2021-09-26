@@ -3,7 +3,7 @@ import AddGarage from "./Garage/AddGarage";
 import AddCar from "./Car/AddCar";
 import CarsList from "./Car/CarsList";
 import EditCar from "./Car/EditCar";
-import {Employee} from "./Employee/Employee";
+import { Employee } from "./Employee";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 function App() {
@@ -81,7 +81,7 @@ function App() {
                   </Link>
                   <li className="nav-item">
                     <Link to={"/AddCar"} className="nav-link">
-                     Edit Garage
+                      Edit Garage
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -108,7 +108,7 @@ function App() {
                   </Link>
                   <li className="nav-item">
                     <Link to={"/Employee"} className="nav-link">
-                     Employee List
+                      Employee List
                     </Link>
                   </li>
                   <li className="nav-item">
