@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
-import { AddEmpModel } from "./AddEmpModel";
-import { EditEmpModel } from "./EditEmpModel";
+import { AddEmpModel } from "../Employee/AddEmpModel";
+import { EditEmpModel } from "../Employee/EditEmpModel";
 
 export class Employee extends Component {
   constructor(props) {
@@ -116,3 +116,5 @@ export class Employee extends Component {
     );
   }
 }
+
+export default Employee;
