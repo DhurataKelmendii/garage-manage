@@ -9,7 +9,7 @@ export class AddEmpModel extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(process.env.REACT_APP_API + "employee", {
+    fetch(process.env.REACT_APP_API + "Employee/Create", {
       method: "POST",
       headers: {
         Accept: "application/json",

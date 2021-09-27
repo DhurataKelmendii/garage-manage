@@ -12,7 +12,7 @@ export class Employee extends Component {
   }
 
   refreshList() {
-    fetch(process.env.REACT_APP_API + "employee")
+    fetch(process.env.REACT_APP_API + "Employee/EmployeeList")
       .then((response) => response.json())
       .then((data) => {
         this.setState({ emps: data });
@@ -29,7 +29,7 @@ export class Employee extends Component {
 
   deleteEmp(empid) {
     if (window.confirm("Are you sure?")) {
-      fetch(process.env.REACT_APP_API + "employee/" + empid, {
+      fetch(process.env.REACT_APP_API + "Employee/Delete" + empid, {
         method: "DELETE",
         header: {
           Accept: "application/json",

@@ -6,14 +6,14 @@ class Delete extends Component {
     super(props);  
     }  
       
-    // DeleteCar= () =>{  
-    //  axios.delete('http://localhost:65424/Api/Car/Delete?id='+this.props.obj.Id)  
-    // .then(json => {  
-    // if(json.data.Status==='Delete'){  
-    // alert('Record deleted successfully!!');  
-    // }  
-    // })  
-    // }  
+    DeleteCar= () =>{  
+     axios.delete('http://localhost:65424/Api/Car/Delete?id='+this.props.obj.Id)  
+    .then(json => {  
+    if(json.data.Status==='Delete'){  
+    alert('Record deleted successfully!!');  
+    }  
+    })  
+    }  
   render() {  
     return (  
         <tr>  
