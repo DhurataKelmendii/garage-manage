@@ -1,4 +1,5 @@
 import React from "react";
+import { Form, Button } from "react-bootstrap";
 import AddCar from "./Car/AddCar";
 import CarsList from "./Car/CarsList";
 import EditCar from "./Car/EditCar";
@@ -13,11 +14,13 @@ import BusGaragesList from "./Bus/BusesList";
 import EditBusGarage from "./BusGarage/EditBusGarage";
 import Employee from "./Employee/Employee";
 import Home from "./Home";
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
+import LoginForm from "./Login/LoginForm";
+import RegisterForm from "./Register/RegisterForm";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
+import LandingPageImage from "./bg.jpg";
 import Image from "react-bootstrap/Image";
+
 function App() {
   return (
     <Router>
@@ -218,5 +221,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;

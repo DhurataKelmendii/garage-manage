@@ -1,5 +1,5 @@
 import React from "react";
-import "./RegisterForm.css";
+import "../Register/RegisterForm.css";
 import { Form, Row, Col, Button } from "react-bootstrap";
 function RegisterForm() {
   return (
