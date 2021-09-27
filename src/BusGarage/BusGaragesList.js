@@ -2,23 +2,23 @@ import React, { Component } from "react";
 import axios from "axios";
 import Delete from "./Delete";
 
-export default class GaragesList extends Component {
+export default class BusGaragesList extends Component {
   constructor(props) {
     super(props);
     this.state = { business: [] };
   }
-  componentDidMount() {
-    debugger;
-    axios
-      .get("http://localhost:65424/Api/Garage/GaragesList")
-      .then((response) => {
-        this.setState({ business: response.data });
-        debugger;
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  // componentDidMount(){
+  //   debugger;
+  //   axios.get('http://localhost:65424/Api/BusGarage/BusGaragesList')
+  //     .then(response => {
+  //       this.setState({ business: response.data });
+  //       debugger;
+
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     })
+  // }
 
   tabRow() {
     return this.state.business.map(function (object, i) {
@@ -29,7 +29,7 @@ export default class GaragesList extends Component {
   render() {
     return (
       <div>
-        <h4 align="center">Cars List</h4>
+        <h4 align="center">BusGarages List</h4>
         <table className="table table-striped" style={{ marginTop: 10 }}>
           <thead>
             <tr>

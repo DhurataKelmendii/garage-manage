@@ -1,11 +1,23 @@
 import React from "react";
-import AddGarage from "./Garage/AddGarage";
 import AddCar from "./Car/AddCar";
 import CarsList from "./Car/CarsList";
 import EditCar from "./Car/EditCar";
-import { Employee } from "./Employee";
+import AddGarage from "./Garage/AddGarage";
+import GaragesList from "./Garage/GaragesList";
+import EditGarage from "./Garage/EditGarage";
+import AddBus from "./Bus/AddBus";
+import BusesList from "./Bus/BusesList";
+import EditBus from "./Bus/EditBus";
+import AddBusGarage from "./BusGarage/AddBusGarage";
+import BusGaragesList from "./Bus/BusesList";
+import EditBusGarage from "./BusGarage/EditBusGarage";
+import Employee from "./Employee/Employee";
+import Home from "./Home";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
+import Image from "react-bootstrap/Image";
 function App() {
   return (
     <Router>
@@ -27,11 +39,12 @@ function App() {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+              <li class="nav-item ">
+                <Link to={"/Home"} className="nav-link">
                   Home
-                </a>
+                </Link>
               </li>
+
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -75,13 +88,13 @@ function App() {
                     Add Garage
                   </Link>
                   <li className="nav-item">
-                    <Link to={"/AddCar"} className="nav-link">
-                      Edit Garage
+                    <Link to={"/GaragesList"} className="nav-link">
+                      Garage list
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link to={"/EditCar"} className="nav-link">
-                      Garage List
+                    <Link to={"/EditGarage"} className="nav-link">
+                      Garage Edit
                     </Link>
                   </li>
                 </ul>
@@ -113,29 +126,94 @@ function App() {
                   </li>
                 </ul>
               </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Bus
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <Link to={"/AddBus"} className="nav-link">
+                    Add Bus
+                  </Link>
+                  <li className="nav-item">
+                    <Link to={"/EditBus"} className="nav-link">
+                      Edit Bus
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/BusesList"} className="nav-link">
+                      Bus List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  BusGarage
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <Link to={"/AddBusGarage"} className="nav-link">
+                    Add Bus
+                  </Link>
+                  <li className="nav-item">
+                    <Link to={"/EditBusGarage"} className="nav-link">
+                      Edit Bus
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/BusGaragesList"} className="nav-link">
+                      Bus garage List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
             </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <ul class="nav justify-content-end">
+              <li class="nav-item ">
+                <Link to={"/LoginForm"} className="nav-link">
+                  Sign in
+                </Link>
+              </li>
+              <li class="nav-item ">
+                <Link to={"/RegisterForm"} className="nav-link">
+                  Sign up
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
-
       <br />
+
       <Switch>
         <Route exact path="/AddCar" component={AddCar} />
         <Route path="/EditCar/:id" component={EditCar} />
         <Route path="/CarsList" component={CarsList} />
         <Route exact path="/AddGarage" component={AddGarage} />
+        <Route path="/GaragesList" component={GaragesList} />
         <Route path="/employee" component={Employee} />
+        <Route exact path="/LoginForm" component={LoginForm} />
+        <Route exact path="/Home" component={Home} />
+        <Route exact path="/RegisterForm" component={RegisterForm} />
+        <Route exact path="/AddBus" component={AddBus} />
+        <Route path="/EditBus/:id" component={EditBus} />
+        <Route path="/BusesList" component={BusesList} />
+        <Route exact path="/AddBusGarage" component={AddBusGarage} />
+        <Route path="/EditBusGarage/:id" component={EditBusGarage} />
+        <Route path="/BusGaragesList" component={BusGaragesList} />
       </Switch>
     </Router>
   );
