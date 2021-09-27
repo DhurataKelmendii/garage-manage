@@ -52,11 +52,7 @@ function App() {
                       Add Car
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to={"/EditCar"} className="nav-link">
-                      Edit Car
-                    </Link>
-                  </li>
+                  
                 </ul>
               </li>
               <li class="nav-item dropdown">
