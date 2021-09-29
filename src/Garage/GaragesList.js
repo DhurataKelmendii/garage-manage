@@ -6,7 +6,6 @@ function GaragesList() {
   const [business, setbussines] = useState();
   const [status, setStatus] = useState();
 
-
   const  getData = () => {
     axios.get("http://localhost:65424/Api/Garage/GaragesList")  
     .then(response => {
@@ -36,7 +35,7 @@ function GaragesList() {
   }, []);
 
     return (
-      <div>
+      <div className="containerr">
         <h4 align="center">Garage List</h4>
         {status && <p className="color-red">Deleted successfully!</p>}
         <table className="table table-striped" style={{ marginTop: 10 }}>
@@ -49,7 +48,7 @@ function GaragesList() {
               <th>Street</th>
               <th>PricePerDay</th>
               <th>CarsUsing</th>
-              <th colSpan="6">Action</th>
+              <th colSpan="8">Action</th>
             </tr>
           </thead>
           <tbody>

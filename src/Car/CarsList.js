@@ -37,7 +37,7 @@ function CarsList() {
   }, []);
 
       return (  
-        <div>  
+        <div className="containerr">  
           <h4 align="center">Cars List</h4>
           {status && <p className="color-red">Deleted successfully!</p>}
           <table className="table table-striped" style={{ marginTop: 10 }}>  
