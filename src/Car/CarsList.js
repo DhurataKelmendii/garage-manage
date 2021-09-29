@@ -36,7 +36,6 @@ function CarsList() {
     getData();
   }, []);
 
-<<<<<<< HEAD
   return (
     <div className="containerr">
       <h4 align="center">Cars List</h4>
@@ -44,6 +43,7 @@ function CarsList() {
       <table className="table table-striped" style={{ marginTop: 10 }}>
         <thead>
           <tr>
+          
             <th>Name</th>
             <th>Brand</th>
             <th>Color</th>
@@ -78,7 +78,6 @@ function CarsList() {
     </div>
   );
 }
-=======
       return (  
         <div>  
           <h4 align="center">Cars List</h4>
@@ -126,6 +125,5 @@ function CarsList() {
         </div>  
     ); 
   }
->>>>>>> 2f12c4ab7689737ba4fec62721b9009186386595
 
 export default CarsList;
