@@ -36,6 +36,7 @@ function CarsList() {
     getData();
   }, []);
 
+<<<<<<< HEAD
   return (
     <div className="containerr">
       <h4 align="center">Cars List</h4>
@@ -77,5 +78,54 @@ function CarsList() {
     </div>
   );
 }
+=======
+      return (  
+        <div>  
+          <h4 align="center">Cars List</h4>
+          {status && <p className="color-red">Deleted successfully!</p>}
+          <table className="table table-striped" style={{ marginTop: 10 }}>  
+            <thead>  
+              <tr>  
+                <th>Name</th>  
+                <th>Brand</th>  
+                <th>Color</th>  
+                <th>ChassisNumber</th>  
+                <th>NumberOfSeats</th> 
+                <th>EngineType</th> 
+                <th>FuelType</th> 
+                <th>YearOfProduction</th> 
+                <th>Price</th>
+                <th colSpan="4">Action</th>  
+              </tr>  
+            </thead>  
+            <tbody>
+              {
+                business?.map((el) => (
+                  <tr key={el.id}>
+                    <td>{el.name}</td>
+                    <td>{el.brand}</td>
+                    <td>{el.color}</td>
+                    <td>{el.chassisNumber}</td>
+                    <td>{el.numberOfSeats}</td>
+                    <td>{el.engineType}</td>
+                    <td>{el.fuelType}</td>
+                    <td>{el.yearOfProduction}</td>
+                    <td>{el.price}</td>
+                    <td>  
+                      <Link to={`/EditCar/${el.id}`} className="btn btn-success">Edit</Link>  
+                    </td>  
+                    <td>  
+                      <button type="button" onClick={() => deleteCar(el.id)} className="btn btn-danger">Delete</button>  
+                    </td> 
+                  </tr>
+                  
+                ))
+              }
+            </tbody>  
+          </table>  
+        </div>  
+    ); 
+  }
+>>>>>>> 2f12c4ab7689737ba4fec62721b9009186386595
 
 export default CarsList;
