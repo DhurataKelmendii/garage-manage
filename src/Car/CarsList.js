@@ -47,6 +47,11 @@ function CarsList() {
                 <th>Brand</th>  
                 <th>Color</th>  
                 <th>ChassisNumber</th>  
+                <th>NumberOfSeats</th> 
+                <th>EngineType</th> 
+                <th>FuelType</th> 
+                <th>YearOfProduction</th> 
+                <th>Price</th>
                 <th colSpan="4">Action</th>  
               </tr>  
             </thead>  
@@ -56,6 +61,13 @@ function CarsList() {
                   <tr key={el.id}>
                     <td>{el.name}</td>
                     <td>{el.brand}</td>
+                    <td>{el.color}</td>
+                    <td>{el.chassisNumber}</td>
+                    <td>{el.numberOfSeats}</td>
+                    <td>{el.engineType}</td>
+                    <td>{el.fuelType}</td>
+                    <td>{el.yearOfProduction}</td>
+                    <td>{el.price}</td>
                     <td>  
                       <Link to={`/EditCar/${el.id}`} className="btn btn-success">Edit</Link>  
                     </td>  
@@ -66,7 +78,6 @@ function CarsList() {
                   
                 ))
               }
-             {/* {tabRow()}    */}
             </tbody>  
           </table>  
         </div>  
