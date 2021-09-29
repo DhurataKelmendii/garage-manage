@@ -60,7 +60,7 @@ function EditCar(props) {
        
     return (  
        <Container className="App">  
-        <h4 className="PageHeading">Enter Car Informations</h4>  
+        <h4 className="PageHeading">Update Car Informations</h4>  
         <Form className="form">  
           <Col>  
             <FormGroup row>  
@@ -123,7 +123,7 @@ function EditCar(props) {
               <Col sm={5}>  
               </Col>  
               <Col sm={1}>  
-              <button type="button" onClick={() => EditCar()} className="btn btn-success">Save Changes</button>  
+              <button type="button" onClick={() => EditCar()} className="btn btn-success">Save</button>  
               </Col>  
               <Col sm={1}>  
                 <Button onClick={() => history.push('/CarsList')} color="danger">Cancel</Button>
