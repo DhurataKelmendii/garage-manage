@@ -18,19 +18,18 @@ import LoginForm from "./Login/LoginForm";
 import RegisterForm from "./Register/RegisterForm";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
-import LandingPageImage from "./bg.jpg";
 import Image from "react-bootstrap/Image";
 
 function App() {
   return (
     <Router>
-      <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar sticky-top navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Car garages
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -43,9 +42,7 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item ">
-                <Link to={"/Home"} className="nav-link">
-                  Home
-                </Link>
+                <Link to={"/Home"} className="nav-link"></Link>
               </li>
 
               <li className="nav-item dropdown">
@@ -60,11 +57,13 @@ function App() {
                   Car
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link to={"/CarsList"} className="nav-link">
-                    Car List
-                  </Link>
-                  <li className="nav-item">
-                    <Link to={"/AddCar"} className="nav-link">
+                  <li className="nav-link">
+                    <Link to={"/CarsList"} className="link">
+                      Car List
+                    </Link>
+                  </li>
+                  <li className="nav-link">
+                    <Link to={"/AddCar"} className="link">
                       Add Car
                     </Link>
                   </li>
@@ -82,17 +81,14 @@ function App() {
                   Garage
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link to={"/AddGarage"} className="nav-link">
-                    Add Garage
-                  </Link>
-                  <li className="nav-item">
-                    <Link to={"/GaragesList"} className="nav-link">
-                      Garage list
+                  <li className="nav-link">
+                    <Link to={"/AddGarage"} className="link">
+                      Add Garage
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to={"/EditGarage"} className="nav-link">
-                      Garage Edit
+                  <li className="nav-link">
+                    <Link to={"/GaragesList"} className="link">
+                      Garage list
                     </Link>
                   </li>
                 </ul>
@@ -109,17 +105,14 @@ function App() {
                   Employee
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link to={"/AddEmpModel"} className="nav-link">
-                    Add Employee
-                  </Link>
-                  <li className="nav-item">
-                    <Link to={"/Employee"} className="nav-link">
-                      Employee List
+                  <li className="nav-link">
+                    <Link to={"/AddEmpModel"} className="link">
+                      Add Employee
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to={"/EditEmpModel"} className="nav-link">
-                      Edit Employee
+                  <li className="nav-link">
+                    <Link to={"/Employee"} className="link">
+                      Employee List
                     </Link>
                   </li>
                 </ul>
@@ -136,16 +129,13 @@ function App() {
                   Bus
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link to={"/AddBus"} className="nav-link">
-                    Add Bus
-                  </Link>
-                  <li className="nav-item">
-                    <Link to={"/EditBus"} className="nav-link">
-                      Edit Bus
+                  <li className="nav-link">
+                    <Link to={"/AddBus"} className="link">
+                      Add Bus
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to={"/BusesList"} className="nav-link">
+                  <li className="nav-link">
+                    <Link to={"/BusesList"} className="link">
                       Bus List
                     </Link>
                   </li>
@@ -163,16 +153,14 @@ function App() {
                   BusGarage
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link to={"/AddBusGarage"} className="nav-link">
-                    Add Bus
-                  </Link>
-                  <li className="nav-item">
-                    <Link to={"/EditBusGarage"} className="nav-link">
-                      Edit Bus
+                  <li className="nav-link">
+                    <Link to={"/AddBusGarage"} className="link">
+                      Add Bus Garage
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link to={"/BusGaragesList"} className="nav-link">
+
+                  <li className="nav-link">
+                    <Link to={"/BusGaragesList"} className="link">
                       Bus garage List
                     </Link>
                   </li>
