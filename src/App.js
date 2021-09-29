@@ -190,6 +190,7 @@ function App() {
         <Route path="/CarsList" component={CarsList} />
         <Route exact path="/AddGarage" component={AddGarage} />
         <Route path="/GaragesList" component={GaragesList} />
+        <Route path="/EditGarage/:id" component={EditGarage} />
         <Route path="/employee" component={Employee} />
         <Route exact path="/LoginForm" component={LoginForm} />
         <Route exact path="/Home" component={Home} />

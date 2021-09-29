@@ -1,48 +1,81 @@
-import React, { Component } from "react";
-import axios from "axios";
-import Delete from "./Delete";
+import React, { useEffect, useState } from 'react';  
+import {Link} from 'react-router-dom';
+import axios from 'axios';  
 
-export default class GaragesList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { business: [] };
-  }
-  componentDidMount() {
-    debugger;
-    axios
-      .get("http://localhost:65424/Api/Garage/GaragesList")
-      .then((response) => {
-        this.setState({ business: response.data });
-        debugger;
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+function GaragesList() {
+  const [business, setbussines] = useState();
+  const [status, setStatus] = useState();
 
-  tabRow() {
-    return this.state.business.map(function (object, i) {
-      return <Delete obj={object} key={i} />;
+
+  const  getData = () => {
+    axios.get("http://localhost:65424/Api/Garage/GaragesList")  
+    .then(response => {
+      setbussines(response.data.garages);   
+    })  
+    .catch((error) => {  
+      console.log(error);  
     });
   }
 
-  render() {
+  const deleteGarage = (id) => {  
+    axios.post(`http://localhost:65424/Api/Garage/DeleteGarage/${id}`)  
+   .then(res => {
+     console.log('res', res);
+    if (res.data) {
+      getData();
+      setStatus(res.data);
+      setTimeout(() => {
+        setStatus(null);
+      }, 4000);
+      alert('Record deleted successfully!!');  
+    }  
+   })  
+   } 
+  useEffect(() => {
+   getData();
+  }, []);
+
     return (
       <div>
-        <h4 align="center">Cars List</h4>
+        <h4 align="center">Garage List</h4>
+        {status && <p className="color-red">Deleted successfully!</p>}
         <table className="table table-striped" style={{ marginTop: 10 }}>
           <thead>
             <tr>
               <th>Name</th>
-              <th>Brand</th>
-              <th>Color</th>
-              <th>ChassisNumber</th>
-              <th colSpan="4">Action</th>
+              <th>CapacityOfCars</th>
+              <th>Country</th>
+              <th>City</th>
+              <th>Street</th>
+              <th>PricePerDay</th>
+              <th>CarsUsing</th>
+              <th colSpan="6">Action</th>
             </tr>
           </thead>
-          <tbody>{this.tabRow()}</tbody>
+          <tbody>
+              {
+                business?.map((el) => (
+                  <tr key={el.id}>
+                    <td>{el.name}</td>
+                    <td>{el.capacityOfCars}</td>
+                    <td>{el.country}</td>
+                    <td>{el.city}</td>
+                    <td>{el.street}</td>
+                    <td>{el.pricePerDay}</td>
+                    <td>{el.carsUsing}</td>
+                    <td>  
+                      <Link to={`/EditGarage/${el.id}`} className="btn btn-success">Edit</Link>  
+                    </td>  
+                    <td>  
+                      <button type="button" onClick={() => deleteGarage(el.id)} className="btn btn-danger">Delete</button>  
+                    </td> 
+                  </tr>
+                  
+                ))
+              }
+            </tbody>  
         </table>
       </div>
     );
   }
-}
+  export default GaragesList;

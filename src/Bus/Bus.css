@@ -5,6 +5,6 @@
 }
 .App {
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px;
+  background-color: rgba(250, 250, 250, 0.888);
 }
