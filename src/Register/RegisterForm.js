@@ -1,61 +1,105 @@
-import React from "react";
+import react, { useState } from "react";
+import { useHistory } from "react-router";
+import axios from "axios";
 import "../Register/RegisterForm.css";
-import { Form, Row, Col, Button } from "react-bootstrap";
-function RegisterForm() {
+import {
+  Container,
+  Col,
+  Form,
+  Row,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+} from "reactstrap";
+
+function RegisterForm (){
+  const [dataUser, setData] = useState({
+      Email: "",
+      Password: "",
+      Address: "",
+      City: "",
+      Zip: "",
+      State: "",
+      PhoneNumber: "",
+    });
+
+  const history = useHistory();
+
+  const RegisterForm = () =>{
+    axios.post('http://localhost:65424/Api/User/CreateUserApplication/', dataUser)
+    .then((json) => {
+      if (json.data) {
+        console.log(json.data.Status);
+        alert("Data Save Successfully");
+        history.push("/GaragesList");
+      } else {
+        alert("Data not Saved");
+      }
+    });
+};
+
   return (
+    <Container className="Appp">
     <main className="form-signin">
       <Form>
         <Row className="mb-3">
-          <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
+          <FormGroup as={Col} >
+            <Label>Email</Label>
+            <Input type="text" placeholder="Enter email" />
+          </FormGroup>
 
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
+          <FormGroup as={Col} >
+            <Label>Password</Label>
+            <Input type="text" placeholder="Password" />
+          </FormGroup>
         </Row>
 
-        <Form.Group className="mb-3" controlId="formGridAddress1">
-          <Form.Label>Address</Form.Label>
-          <Form.Control placeholder="1234 Main St" />
-        </Form.Group>
+        <FormGroup className="mb-3" >
+          <Label>Address</Label>
+          <Input type="text" placeholder="Address" />
+        </FormGroup>
 
-        <Form.Group className="mb-3" controlId="formGridAddress2">
-          <Form.Label>Address 2</Form.Label>
-          <Form.Control placeholder="Apartment, studio, or floor" />
-        </Form.Group>
+        <FormGroup className="mb-3" >
+          <Label>Phone Number</Label>
+          <Input type="text" placeholder="Phone Number" />
+        </FormGroup>
 
+        <FormGroup className="mb-3" >
+          <Label>Address</Label>
+          <Input type="text" placeholder="Address" />
+        </FormGroup>
         <Row className="mb-3">
-          <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>City</Form.Label>
-            <Form.Control />
-          </Form.Group>
+          <FormGroup as={Col}>
+            <Label>City</Label>
+            <Input type="text" placeholder="City" />
+          </FormGroup>
 
-          <Form.Group as={Col} controlId="formGridState">
-            <Form.Label>State</Form.Label>
-            <Form.Select defaultValue="Choose...">
+          {/* <FormGroup as={Col} controlId="formGridState">
+            <Label>State</Label>
+            <Select defaultValue="Choose...">
               <option>Choose...</option>
               <option>...</option>
-            </Form.Select>
-          </Form.Group>
+            </Select>
+          </FormGroup> */}
 
-          <Form.Group as={Col} controlId="formGridZip">
-            <Form.Label>Zip</Form.Label>
-            <Form.Control />
-          </Form.Group>
+          <FormGroup as={Col} >
+            <Label>Zip</Label>
+            <Input type="text" placeholder="Zip" />
+          </FormGroup>
         </Row>
 
-        <Form.Group className="mb-3" id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
+        <FormGroup className="mb-3" >
+        <Label>Check me out</Label>
+          <Input type="checkbox" label="Check me out" />
+        </FormGroup>
 
         <Button variant="primary" type="submit">
           Register
         </Button>
       </Form>
     </main>
+    </Container>
   );
 }
 

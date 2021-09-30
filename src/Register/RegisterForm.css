@@ -24,3 +24,11 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.App {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgba(250, 250, 250, 0.888);
+}
+.containerr {
+  background-color: rgba(250, 250, 250, 0.888);
+}
