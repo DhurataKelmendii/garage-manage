@@ -23,13 +23,16 @@ function LoginForm (){
     axios.post('http://localhost:65424/Api/User/Login/', dataUser)
     .then((json) => {
       if (json.data) {
-        console.log(json.data.Status);
         alert("Data Save Successfully");
         history.push("/CarsList");
       } else {
-        alert("Data not Saved");
+        alert("User does not exist!");
       }
-    });
+    })
+    .catch((error) => {
+      alert("User does not exist!");
+    })
+    ;
 };
 
   const handleChange = (e) => {

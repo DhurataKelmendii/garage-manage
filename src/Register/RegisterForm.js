@@ -19,8 +19,6 @@ function RegisterForm (){
       Password: "",
       Address: "",
       City: "",
-      Zip: "",
-      State: "",
       PhoneNumber: "",
     });
 
@@ -39,6 +37,10 @@ function RegisterForm (){
     });
 };
 
+const handleChange = (e) => {
+  setData({ ...dataUser, [e.target.name]: e.target.value });
+};
+
   return (
     <Container className="Appp">
     <main className="form-signin">
@@ -46,57 +48,41 @@ function RegisterForm (){
         <Row className="mb-3">
           <FormGroup as={Col} >
             <Label>Email</Label>
-            <Input type="text" placeholder="Enter email" />
+            <Input  name="Email" type="text"  onChange={handleChange}
+                value={dataUser.Email} placeholder="Email" />
           </FormGroup>
 
           <FormGroup as={Col} >
             <Label>Password</Label>
-            <Input type="text" placeholder="Password" />
+            <Input  name="Password" type="text"  onChange={handleChange}
+                value={dataUser.Password} placeholder="Password" />
           </FormGroup>
         </Row>
 
         <FormGroup className="mb-3" >
           <Label>Address</Label>
-          <Input type="text" placeholder="Address" />
+          <Input  name="Address" type="text"  onChange={handleChange}
+                value={dataUser.Address} placeholder="Address" />
         </FormGroup>
 
         <FormGroup className="mb-3" >
           <Label>Phone Number</Label>
-          <Input type="text" placeholder="Phone Number" />
+          <Input  name="PhoneNumber" type="text"  onChange={handleChange}
+                value={dataUser.PhoneNumber} placeholder="Phone Number" />
         </FormGroup>
 
-        <FormGroup className="mb-3" >
-          <Label>Address</Label>
-          <Input type="text" placeholder="Address" />
-        </FormGroup>
-        <Row className="mb-3">
-          <FormGroup as={Col}>
-            <Label>City</Label>
-            <Input type="text" placeholder="City" />
-          </FormGroup>
-
-          {/* <FormGroup as={Col} controlId="formGridState">
-            <Label>State</Label>
-            <Select defaultValue="Choose...">
-              <option>Choose...</option>
-              <option>...</option>
-            </Select>
-          </FormGroup> */}
-
-          <FormGroup as={Col} >
-            <Label>Zip</Label>
-            <Input type="text" placeholder="Zip" />
-          </FormGroup>
-        </Row>
-
-        <FormGroup className="mb-3" >
-        <Label>Check me out</Label>
-          <Input type="checkbox" label="Check me out" />
+        <FormGroup className="mb-3">
+          <Label>City</Label>
+          <Input  name="City" type="text"  onChange={handleChange}
+                value={dataUser.City} placeholder="City" />
         </FormGroup>
 
-        <Button variant="primary" type="submit">
-          Register
-        </Button>
+       
+        <Col >
+          <button type="button" onClick={() => RegisterForm()} className="btn btn-primary">Register</button>
+     
+        </Col>
+       
       </Form>
     </main>
     </Container>
