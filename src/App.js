@@ -12,13 +12,18 @@ import EditBus from "./Bus/EditBus";
 import AddBusGarage from "./BusGarage/AddBusGarage";
 import BusGaragesList from "./Bus/BusesList";
 import EditBusGarage from "./BusGarage/EditBusGarage";
-import Employee from "./Employee/Employee";
+import AddEmployee from "./Employee/AddEmployee";
+import EmployeeList from "./Employee/EmployeeList";
+import EditBusGarage from "./BusGarage/EditBusGarage";
+import AddCategory from "./Category/AddCategory";
+import CategoryList from "./Category/CategoryList";
 import Home from "./Home";
 import LoginForm from "./Login/LoginForm";
 import RegisterForm from "./Register/RegisterForm";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Image from "react-bootstrap/Image";
+import EditEmployee from "./Employee/EditEmployee";
 
 function App() {
   return (
@@ -106,12 +111,12 @@ function App() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li className="nav-link">
-                    <Link to={"/AddEmpModel"} className="link">
+                    <Link to={"/AddEmployee"} className="link">
                       Add Employee
                     </Link>
                   </li>
                   <li className="nav-link">
-                    <Link to={"/Employee"} className="link">
+                    <Link to={"/EmployeeList"} className="link">
                       Employee List
                     </Link>
                   </li>
@@ -191,7 +196,12 @@ function App() {
         <Route exact path="/AddGarage" component={AddGarage} />
         <Route path="/GaragesList" component={GaragesList} />
         <Route path="/EditGarage/:id" component={EditGarage} />
-        <Route path="/employee" component={Employee} />
+        <Route path="/EditEmployee/:id" component={EditEmployee} />
+        <Route path="/AddEmployee" component={AddEmployee} />
+        <Route path="/AddCategory" component={AddCategory} />
+        <Route path="/EditCategory/:id" component={EditCategory} />
+        <Route path="/CategoryList" component={CategoryList} />
+        <Route path="/EmployeeList" component={EmployeeList} />
         <Route exact path="/LoginForm" component={LoginForm} />
         <Route exact path="/Home" component={Home} />
         <Route exact path="/RegisterForm" component={RegisterForm} />
