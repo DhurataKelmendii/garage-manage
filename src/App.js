@@ -84,78 +84,8 @@ function App() {
                 </ul>
               </li>
 
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Admin
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li className="nav-link">
-                    <Link to={"/AdminsList"} className="link">
-                      AdminList
-                    </Link>
-                  </li>
-                  <li className="nav-link">
-                    <Link to={"/AddAdmin"} className="link">
-                      Add Admin
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Roles
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li className="nav-link">
-                    <Link to={"/RolessList"} className="link">
-                      RolesList
-                    </Link>
-                  </li>
-                  <li className="nav-link">
-                    <Link to={"/AddRoles"} className="link">
-                      Add Role
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  place
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li className="nav-link">
-                    <Link to={"/PlacesList"} className="link">
-                      place List
-                    </Link>
-                  </li>
-                  <li className="nav-link">
-                    <Link to={"/AddPlace"} className="link">
-                      Add place
-                    </Link>
-                  </li>
-                </ul>
-              </li>
+              
+              
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -189,21 +119,22 @@ function App() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Employee
+                  Place
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li className="nav-link">
-                    <Link to={"/AddEmployee"} className="link">
-                      Add Employee
+                    <Link to={"/PlacesList"} className="link">
+                      place List
                     </Link>
                   </li>
                   <li className="nav-link">
-                    <Link to={"/EmployeesList"} className="link">
-                      Employee List
+                    <Link to={"/AddPlace"} className="link">
+                      Add place
                     </Link>
                   </li>
                 </ul>
               </li>
+             
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -274,6 +205,78 @@ function App() {
                   <li className="nav-link">
                     <Link to={"/CategoryList"} className="link">
                       Category List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Employee
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/AddEmployee"} className="link">
+                      Add Employee
+                    </Link>
+                  </li>
+                  <li className="nav-link">
+                    <Link to={"/EmployeesList"} className="link">
+                      Employee List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Admin
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/AdminsList"} className="link">
+                      AdminList
+                    </Link>
+                  </li>
+                  <li className="nav-link">
+                    <Link to={"/AddAdmin"} className="link">
+                      Add Admin
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Roles
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/RolessList"} className="link">
+                      RolesList
+                    </Link>
+                  </li>
+                  <li className="nav-link">
+                    <Link to={"/AddRoles"} className="link">
+                      Add Role
                     </Link>
                   </li>
                 </ul>
