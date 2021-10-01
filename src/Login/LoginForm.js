@@ -19,7 +19,7 @@ function LoginForm() {
         console.log();
         if (response.data) {
           alert("Data Save Successfully");
-          history.push("/");
+          history.push("/App");
         } else {
           alert("User does not existtttt!");
         }
