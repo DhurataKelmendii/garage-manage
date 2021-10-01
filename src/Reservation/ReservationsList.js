@@ -2,22 +2,22 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';  
 
-function CarsList() {
+function ReservationsList() {
   const [business, setbussines] = useState();
   const [status, setStatus] = useState();
 
   const  getData = () => {
-    axios.get('http://localhost:65424/Api/Car/CarsList')  
+    axios.get('http://localhost:65424/Api/Reservation/ReservationsList')  
     .then(response => {
-      setbussines(response.data.cars);  
+      setbussines(response.data.reservations);  
     })  
     .catch((error) => {  
       console.log(error);  
     });
   }
 
-  const deleteCar = (id) => {  
-    axios.post(`http://localhost:65424/Api/Car/Delete/${id}`)  
+  const deleteReservation = (id) => {  
+    axios.post(`http://localhost:65424/Api/Reservation/DeleteReservation/${id}`)  
    .then(res => {
      console.log('res', res);
     if (res.data) {
@@ -37,20 +37,17 @@ function CarsList() {
 
       return (  
         <div className="containerr">  
-          <h4 align="center">Cars List</h4>
+          <h4 align="center">Reservations List</h4>
           {status && <p className="color-red">Deleted successfully!</p>}
           <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  
               <tr>  
-                <th>Name</th>  
-                <th>Brand</th>  
-                <th>Color</th>  
-                <th>ChassisNumber</th>  
-                <th>NumberOfSeats</th> 
-                <th>EngineType</th> 
-                <th>FuelType</th> 
-                <th>YearOfProduction</th> 
-                <th>Price</th>
+                <th>RezervationName</th>  
+                <th>RezervationStartDate</th>  
+                <th>RezervationEndDate</th>  
+                <th>TotalBill</th>  
+                <th>GarageName</th> 
+                <th>CarsUsing</th> 
                 <th colSpan="4">Action</th>  
               </tr>  
             </thead>  
@@ -58,20 +55,17 @@ function CarsList() {
               {
                 business?.map((el) => (
                   <tr key={el.id}>
-                    <td>{el.name}</td>
-                    <td>{el.brand}</td>
-                    <td>{el.color}</td>
-                    <td>{el.chassisNumber}</td>
-                    <td>{el.numberOfSeats}</td>
-                    <td>{el.engineType}</td>
-                    <td>{el.fuelType}</td>
-                    <td>{el.yearOfProduction}</td>
-                    <td>{el.price}</td>
+                    <td>{el.rezervationName}</td>
+                    <td>{el.rezervationStartDate}</td>
+                    <td>{el.rezervationEndDate}</td>
+                    <td>{el.totalBill}</td>
+                    <td>{el.garageName}</td>
+                    <td>{el.carsUsing}</td>
                     <td>  
-                      <Link to={`/EditCar/${el.id}`} className="btn btn-success">Edit</Link>  
+                      <Link to={`/EditReservation/${el.id}`} className="btn btn-success">Edit</Link>  
                     </td>  
                     <td>  
-                      <button type="button" onClick={() => deleteCar(el.id)} className="btn btn-danger">Delete</button>  
+                      <button type="button" onClick={() => deleteReservation(el.id)} className="btn btn-danger">Delete</button>  
                     </td> 
                   </tr>
                   
@@ -83,4 +77,4 @@ function CarsList() {
     ); 
   }
 
-  export default CarsList;
+  export default ReservationsList;
