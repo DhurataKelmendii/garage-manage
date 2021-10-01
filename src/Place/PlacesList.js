@@ -44,7 +44,10 @@ function PlacesList() {
         <thead>
           <tr>
             <th>Name</th>
-
+            <th>Country</th>
+            <th>City</th>
+            <th>Street</th>
+            <th>Number of Garages</th>
             <th colSpan="8">Action</th>
           </tr>
         </thead>
@@ -52,7 +55,10 @@ function PlacesList() {
           {business?.map((el) => (
             <tr key={el.id}>
               <td>{el.namePlace}</td>
-
+              <td>{el.country}</td>
+              <td>{el.city}</td>
+              <td>{el.street}</td>
+              <td>{el.numberOfGarages}</td>
               <td>
                 <Link to={`/EditPlace/${el.id}`} className="btn btn-success">
                   Edit

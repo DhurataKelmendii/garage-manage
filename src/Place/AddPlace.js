@@ -16,6 +16,10 @@ import {
 function AddPlace() {
   const [dataPlace, setData] = useState({
     NamePlace: "",
+    Country: "",
+    City: "",
+    Street: "",
+    NumberOfGarages: "",
   });
 
   const history = useHistory();
@@ -43,7 +47,7 @@ function AddPlace() {
       <Form className="form">
         <Col>
           <FormGroup row>
-            <Label for="name" sm={2}>
+            <Label for="NamePlace" sm={2}>
               Name place
             </Label>
             <Col sm={10}>
@@ -56,6 +60,63 @@ function AddPlace() {
               />
             </Col>
           </FormGroup>
+          <FormGroup row>
+            <Label for="Country" sm={2}>
+            Country
+            </Label>
+            <Col sm={10}>
+              <Input
+                type="text"
+                name="Country"
+                onChange={handleChange}
+                value={dataPlace.Country}
+                placeholder="Enter Country"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="City" sm={2}>
+            City
+            </Label>
+            <Col sm={10}>
+              <Input
+                type="text"
+                name="City"
+                onChange={handleChange}
+                value={dataPlace.City}
+                placeholder="Enter City"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="Street" sm={2}>
+            Street
+            </Label>
+            <Col sm={10}>
+              <Input
+                type="text"
+                name="Street"
+                onChange={handleChange}
+                value={dataPlace.Street}
+                placeholder="Enter Street"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="NumberOfGarages" sm={2}>
+            Number Of Garages
+            </Label>
+            <Col sm={10}>
+              <Input
+                type="number"
+                name="NumberOfGarages"
+                onChange={handleChange}
+                value={dataPlace.NumberOfGarages}
+                placeholder="Enter NumberOfGarages"
+              />
+            </Col>
+          </FormGroup>
+
         </Col>
         <Col>
           <FormGroup row>

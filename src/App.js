@@ -26,6 +26,9 @@ import EmployeesList from "./Employee/EmployeesList";
 import AddCategory from "./Category/AddCategory";
 import CategoryList from "./Category/CategoryList";
 import EditCategory from "./Category/EditCategory";
+import AddReservation from "./Reservation/AddReservation";
+import ReservationsList from "./Reservation/ReservationsList";
+import EditReservation from "./Reservation/EditReservation";
 import Home from "./Home";
 import LoginForm from "./Login/LoginForm";
 import RegisterForm from "./Register/RegisterForm";
@@ -83,8 +86,6 @@ function App() {
                   </li>
                 </ul>
               </li>
-
-              
               
               <li className="nav-item dropdown">
                 <a
@@ -134,7 +135,6 @@ function App() {
                   </li>
                 </ul>
               </li>
-             
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -180,6 +180,31 @@ function App() {
                   <li className="nav-link">
                     <Link to={"/BusGaragesList"} className="link">
                       Bus garage List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Reservation
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/AddReservation"} className="link">
+                      Add Reservation
+                    </Link>
+                  </li>
+
+                  <li className="nav-link">
+                    <Link to={"/ReservationsList"} className="link">
+                    Reservation List
                     </Link>
                   </li>
                 </ul>
@@ -247,7 +272,7 @@ function App() {
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li className="nav-link">
                     <Link to={"/AdminsList"} className="link">
-                      AdminList
+                      Admin List
                     </Link>
                   </li>
                   <li className="nav-link">
@@ -330,6 +355,9 @@ function App() {
         <Route exact path="/AddBusGarage" component={AddBusGarage} />
         <Route path="/EditBusGarage/:id" component={EditBusGarage} />
         <Route path="/BusGaragesList" component={BusGaragesList} />
+        <Route exact path="/AddReservation" component={AddReservation} />
+        <Route path="/EditReservation/:id" component={EditReservation} />
+        <Route path="/ReservationsList" component={ReservationsList} />
       </Switch>
     </Router>
   );
