@@ -1,7 +1,8 @@
 import react, { useState } from "react";
-import { Route, Router, Switch, useHistory } from "react-router-dom";
+import { Link, Route, Router, Switch, useHistory } from "react-router-dom";
 import axios from "axios";
 import "../Login/LoginForm.css";
+import RegisterForm from "../Register/RegisterForm";
 import App from "../App";
 import { Container, Col, Form, Row, FormGroup, Label, Input } from "reactstrap";
 
@@ -69,7 +70,8 @@ function LoginForm() {
             </FormGroup>
           </Row>
           {/* <Col className="w-100 btn btn-lg btn-primary"> */}
-          <Col>
+
+          <Col className="col">
             <button
               type="button"
               onClick={() => LoginForm()}
@@ -77,6 +79,12 @@ function LoginForm() {
             >
               Sign in
             </button>
+            <div className="nav justify-content-end">
+              Are you new?
+              <Link to={"/RegisterForm"} className="signup-btn">
+                Sign Up
+              </Link>
+            </div>
           </Col>
         </Form>
       </main>
