@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import "../Employee/Employee.css";
+import "../Admin/Admin.css";
 import {
   Container,
   Col,
@@ -12,8 +12,8 @@ import {
   Button,
 } from "reactstrap";
 
-function EditEmployee(props) {
-  const [dataEmployee, setData] = useState({
+function EditAdmin(props) {
+  const [dataAdmin, setData] = useState({
     Name: "",
     Email: "",
     Gender: "",
@@ -21,13 +21,13 @@ function EditEmployee(props) {
   const history = useHistory();
   const id = props.match.params.id;
 
-  const EditEmployee = () => {
+  const EditAdmin = () => {
     axios
-      .post("http://localhost:65424/Api/Employee/UpdateEmployee/", dataEmployee)
+      .post("http://localhost:65424/Api/Admin/UpdateAdmin/", dataAdmin)
       .then((response) => {
         if (response.data) {
           alert("Data Save Successfully");
-          history.push("/EmployeesList");
+          history.push("/AdminsList");
         } else {
           alert("Data not Saved");
         }
@@ -35,12 +35,12 @@ function EditEmployee(props) {
   };
 
   const handleChange = (e) => {
-    setData({ ...dataEmployee, [e.target.name]: e.target.value }); //destructure
+    setData({ ...dataAdmin, [e.target.name]: e.target.value }); //destructure
   };
 
   useEffect(() => {
     axios
-      .get(`http://localhost:65424/Api/Employee/GetEmployeeById/${id}`)
+      .get(`http://localhost:65424/Api/Admin/GetAdminById/${id}`)
       .then((response) => {
         if (response.data) {
           setData({
@@ -58,7 +58,7 @@ function EditEmployee(props) {
 
   return (
     <Container className="App">
-      <h4 className="PageHeading">Update Employee Informations</h4>
+      <h4 className="PageHeading">Update Admin Informations</h4>
       <Form className="form">
         <Col>
           <FormGroup row>
@@ -70,7 +70,7 @@ function EditEmployee(props) {
                 type="text"
                 name="Name"
                 onChange={handleChange}
-                value={dataEmployee.Name}
+                value={dataAdmin.Name}
                 placeholder="Enter Name"
               />
             </Col>
@@ -84,7 +84,7 @@ function EditEmployee(props) {
                 type="text"
                 name="Email"
                 onChange={handleChange}
-                value={dataEmployee.Email}
+                value={dataAdmin.Email}
                 placeholder="Enter Email"
               />
             </Col>
@@ -98,7 +98,7 @@ function EditEmployee(props) {
                 type="text"
                 name="Gender"
                 onChange={handleChange}
-                value={dataEmployee.Gender}
+                value={dataAdmin.Gender}
                 placeholder="Enter Gender "
               />
             </Col>
@@ -110,7 +110,7 @@ function EditEmployee(props) {
             <Col sm={1}>
               <button
                 type="button"
-                onClick={() => EditEmployee()}
+                onClick={() => EditAdmin()}
                 className="btn btn-success"
               >
                 Save
@@ -118,7 +118,7 @@ function EditEmployee(props) {
             </Col>
             <Col sm={1}>
               <Button
-                onClick={() => history.push("/EmployeesList")}
+                onClick={() => history.push("/AdminsList")}
                 color="danger"
               >
                 Cancel
@@ -132,4 +132,4 @@ function EditEmployee(props) {
   );
 }
 
-export default EditEmployee;
+export default EditAdmin;

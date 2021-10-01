@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 
 function AddBus() {
-  const [dataBus, setDataBus] = useState({
+  const [dataBus, setData] = useState({
     Name: "",
     Brand: "",
     Color: "",
@@ -25,16 +25,17 @@ function AddBus() {
     YearOfProduction: "",
     Price: "",
   });
+
   const history = useHistory();
 
   const AddBus = () => {
     axios
-      .post("http://localhost:65424/Api/Bus/Create/", dataBus)
+      .post("http://localhost:65424/Api/Bus/CreateBus/", dataBus)
       .then((json) => {
         if (json.data) {
           console.log(json.data.Status);
           alert("Data Save Successfully");
-          history.push("/BussList");
+          history.push("/BusList");
         } else {
           alert("Data not Saved");
         }
@@ -42,9 +43,8 @@ function AddBus() {
   };
 
   const handleChange = (e) => {
-    setDataBus({ ...dataBus, [e.target.name]: e.target.value });
+    setData({ ...dataBus, [e.target.name]: e.target.value });
   };
-
   return (
     <Container className="App">
       <h4 className="PageHeading">Enter Bus Informations</h4>
@@ -190,7 +190,7 @@ function AddBus() {
               </button>
             </Col>
             <Col sm={1}>
-              <Button color="danger">Cancel</Button>{" "}
+              <Button City="danger">Cancel</Button>{" "}
             </Col>
             <Col sm={5}></Col>
           </FormGroup>

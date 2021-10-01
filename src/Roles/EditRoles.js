@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import "../App.css";
+import "../Roles/Roles.css";
 import {
   Container,
   Col,
@@ -12,20 +12,20 @@ import {
   Button,
 } from "reactstrap";
 
-function EditCategory(props) {
-  const [dataCategory, setDataCategory] = useState({
-    CategoryName: "",
+function EditRoles(props) {
+  const [dataRoles, setData] = useState({
+    RoleName: "",
   });
   const history = useHistory();
   const id = props.match.params.id;
 
-  const EditCategory = () => {
+  const EditRoles = () => {
     axios
-      .post("http://localhost:65424/Api/Category/Update/", dataCategory)
-      .then((json) => {
-        if (json.data) {
+      .post("http://localhost:65424/Api/Roles/UpdateRoles/", dataRoles)
+      .then((response) => {
+        if (response.data) {
           alert("Data Save Successfully");
-          history.push("/CategoryList");
+          history.push("/RolessList");
         } else {
           alert("Data not Saved");
         }
@@ -33,17 +33,17 @@ function EditCategory(props) {
   };
 
   const handleChange = (e) => {
-    setDataCategory({ ...dataCategory, [e.target.name]: e.target.value }); //destructure
+    setData({ ...dataRoles, [e.target.name]: e.target.value }); //destructure
   };
 
   useEffect(() => {
     axios
-      .get(`http://localhost:65424/Api/Category/GetCategoryById/${id}`)
+      .get(`http://localhost:65424/Api/Roles/GetRolesById/${id}`)
       .then((response) => {
         if (response.data) {
-          setDataCategory({
+          setData({
             Id: response.data.id,
-            CategoryName: response.data.categoryName,
+            RoleName: response.data.rolename,
           });
         }
       })
@@ -54,20 +54,20 @@ function EditCategory(props) {
 
   return (
     <Container className="App">
-      <h4 className="PageHeading">Update Category Informations</h4>
+      <h4 className="PageHeading">Update Roles Informations</h4>
       <Form className="form">
         <Col>
           <FormGroup row>
-            <Label for="CategoryName" sm={2}>
-              Category Name
+            <Label for="RoleName" sm={2}>
+              RoleName
             </Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="CategoryName"
+                name="RoleName"
                 onChange={handleChange}
-                value={dataCategory.CategoryName}
-                placeholder="Enter Category Name"
+                value={dataRoles.RoleName}
+                placeholder="Enter RoleName"
               />
             </Col>
           </FormGroup>
@@ -78,7 +78,7 @@ function EditCategory(props) {
             <Col sm={1}>
               <button
                 type="button"
-                onClick={() => EditCategory()}
+                onClick={() => EditRoles()}
                 className="btn btn-success"
               >
                 Save
@@ -86,7 +86,7 @@ function EditCategory(props) {
             </Col>
             <Col sm={1}>
               <Button
-                onClick={() => history.push("/CategoryList")}
+                onClick={() => history.push("/RolessList")}
                 color="danger"
               >
                 Cancel
@@ -100,4 +100,4 @@ function EditCategory(props) {
   );
 }
 
-export default EditCategory;
+export default EditRoles;

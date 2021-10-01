@@ -1,7 +1,7 @@
 import react, { useState } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import "../App.css";
+import "../Place/Place.css";
 import {
   Container,
   Col,
@@ -13,20 +13,21 @@ import {
   Button,
 } from "reactstrap";
 
-function AddCategory() {
-  const [dataCategory, setDataCategory] = useState({
-    CategoryName: "",
+function AddPlace() {
+  const [dataPlace, setData] = useState({
+    NamePlace: "",
   });
+
   const history = useHistory();
 
-  const AddCategory = () => {
+  const AddPlace = () => {
     axios
-      .post("http://localhost:65424/Api/Category/Create/", dataCategory)
+      .post("http://localhost:65424/Api/Place/CreatePlace/", dataPlace)
       .then((json) => {
         if (json.data) {
           console.log(json.data.Status);
           alert("Data Save Successfully");
-          history.push("/CategoryList");
+          history.push("/PlacesList");
         } else {
           alert("Data not Saved");
         }
@@ -34,25 +35,24 @@ function AddCategory() {
   };
 
   const handleChange = (e) => {
-    setDataCategory({ ...dataCategory, [e.target.name]: e.target.value });
+    setData({ ...dataPlace, [e.target.name]: e.target.value });
   };
-
   return (
     <Container className="App">
-      <h4 className="PageHeading">Enter Category Informations</h4>
+      <h4 className="PageHeading">Enter Place Informations</h4>
       <Form className="form">
         <Col>
           <FormGroup row>
-            <Label for="CategoryName" sm={2}>
-              Category Name
+            <Label for="name" sm={2}>
+              Name place
             </Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="CategoryName"
+                name="NamePlace"
                 onChange={handleChange}
-                value={dataCategory.CategoryName}
-                placeholder="Enter Category Name"
+                value={dataPlace.NamePlace}
+                placeholder="Enter NamePlace"
               />
             </Col>
           </FormGroup>
@@ -60,17 +60,17 @@ function AddCategory() {
         <Col>
           <FormGroup row>
             <Col sm={5}></Col>
-            <Col sm={1} className="d-flex justify-content-start">
+            <Col sm={1}>
               <button
                 type="button"
-                onClick={() => AddCategory()}
+                onClick={() => AddPlace()}
                 className="btn btn-success"
               >
                 Submit
               </button>
             </Col>
-            <Col sm={1} className="d-flex justify-content-end">
-              <Button color="danger">Cancel</Button>{" "}
+            <Col sm={1}>
+              <Button City="danger">Cancel</Button>{" "}
             </Col>
             <Col sm={5}></Col>
           </FormGroup>
@@ -80,4 +80,4 @@ function AddCategory() {
   );
 }
 
-export default AddCategory;
+export default AddPlace;

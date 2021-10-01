@@ -7,16 +7,25 @@ import AddGarage from "./Garage/AddGarage";
 import GaragesList from "./Garage/GaragesList";
 import EditGarage from "./Garage/EditGarage";
 import AddBus from "./Bus/AddBus";
-import BusesList from "./Bus/BusesList";
+import BusList from "./Bus/BusList";
 import EditBus from "./Bus/EditBus";
+import AddPlace from "./Place/AddPlace";
+import PlacesList from "./Place/PlacesList";
+import EditPlace from "./Place/EditPlace";
+import AddAdmin from "./Admin/AddAdmin";
+import AdminsList from "./Admin/AdminsList";
+import EditAdmin from "./Admin/EditAdmin";
+import AddRoles from "./Roles/AddRoles";
+import RolessList from "./Roles/RolessList";
+import EditRoles from "./Roles/EditRoles";
 import AddBusGarage from "./BusGarage/AddBusGarage";
-import BusGaragesList from "./Bus/BusesList";
+import BusGaragesList from "./BusGarage/BusGaragesList";
 import EditBusGarage from "./BusGarage/EditBusGarage";
 import AddEmployee from "./Employee/AddEmployee";
-import EmployeeList from "./Employee/EmployeeList";
-import EditBusGarage from "./BusGarage/EditBusGarage";
+import EmployeesList from "./Employee/EmployeesList";
 import AddCategory from "./Category/AddCategory";
 import CategoryList from "./Category/CategoryList";
+import EditCategory from "./Category/EditCategory";
 import Home from "./Home";
 import LoginForm from "./Login/LoginForm";
 import RegisterForm from "./Register/RegisterForm";
@@ -74,6 +83,79 @@ function App() {
                   </li>
                 </ul>
               </li>
+
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Admin
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/AdminsList"} className="link">
+                      AdminList
+                    </Link>
+                  </li>
+                  <li className="nav-link">
+                    <Link to={"/AddAdmin"} className="link">
+                      Add Admin
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Roles
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/RolessList"} className="link">
+                      RolesList
+                    </Link>
+                  </li>
+                  <li className="nav-link">
+                    <Link to={"/AddRoles"} className="link">
+                      Add Role
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  place
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/PlacesList"} className="link">
+                      place List
+                    </Link>
+                  </li>
+                  <li className="nav-link">
+                    <Link to={"/AddPlace"} className="link">
+                      Add place
+                    </Link>
+                  </li>
+                </ul>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -116,7 +198,7 @@ function App() {
                     </Link>
                   </li>
                   <li className="nav-link">
-                    <Link to={"/EmployeeList"} className="link">
+                    <Link to={"/EmployeesList"} className="link">
                       Employee List
                     </Link>
                   </li>
@@ -140,7 +222,7 @@ function App() {
                     </Link>
                   </li>
                   <li className="nav-link">
-                    <Link to={"/BusesList"} className="link">
+                    <Link to={"/BussList"} className="link">
                       Bus List
                     </Link>
                   </li>
@@ -167,6 +249,31 @@ function App() {
                   <li className="nav-link">
                     <Link to={"/BusGaragesList"} className="link">
                       Bus garage List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Category
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/AddCategory"} className="link">
+                      Add category
+                    </Link>
+                  </li>
+
+                  <li className="nav-link">
+                    <Link to={"/CategoryList"} className="link">
+                      Category List
                     </Link>
                   </li>
                 </ul>
@@ -201,13 +308,22 @@ function App() {
         <Route path="/AddCategory" component={AddCategory} />
         <Route path="/EditCategory/:id" component={EditCategory} />
         <Route path="/CategoryList" component={CategoryList} />
-        <Route path="/EmployeeList" component={EmployeeList} />
+        <Route path="/EmployeesList" component={EmployeesList} />
+        <Route path="/AdminsList" component={AdminsList} />
+        <Route path="/EditAdmin/:id" component={EditAdmin} />
+        <Route exact path="/AddAdmin" component={AddAdmin} />
+        <Route path="/RolessList" component={RolessList} />
+        <Route path="/EditRoles/:id" component={EditRoles} />
+        <Route exact path="/AddRoles" component={AddRoles} />
         <Route exact path="/LoginForm" component={LoginForm} />
         <Route exact path="/Home" component={Home} />
         <Route exact path="/RegisterForm" component={RegisterForm} />
         <Route exact path="/AddBus" component={AddBus} />
         <Route path="/EditBus/:id" component={EditBus} />
-        <Route path="/BusesList" component={BusesList} />
+        <Route exact path="/AddPlace" component={AddPlace} />
+        <Route path="/EditPlace/:id" component={EditPlace} />
+        <Route path="/PlacesList" component={PlacesList} />
+        <Route path="/BusList" component={BusList} />
         <Route exact path="/AddBusGarage" component={AddBusGarage} />
         <Route path="/EditBusGarage/:id" component={EditBusGarage} />
         <Route path="/BusGaragesList" component={BusGaragesList} />

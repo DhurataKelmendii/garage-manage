@@ -1,0 +1,13 @@
+.PageHeading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black !important;
+}
+.App {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgba(250, 250, 250, 0.888);
+}
+.containerr {
+  background-color: rgba(250, 250, 250, 0.888);
+}
