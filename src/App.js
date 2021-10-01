@@ -40,7 +40,7 @@ function App() {
       <nav className="navbar sticky-top navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Car garages
+            Manage garages
           </a>
           <button
             className="navbar-toggler"
@@ -124,7 +124,7 @@ function App() {
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li className="nav-link">
                     <Link to={"/PlacesList"} className="link">
-                      place List
+                      Place List
                     </Link>
                   </li>
                   <li className="nav-link">
