@@ -16,16 +16,17 @@ function LoginForm() {
     axios
       .post("http://localhost:65424/Api/User/Login/", dataUser)
       .then((response) => {
+        console.log();
         if (response.data) {
           alert("Data Save Successfully");
-          history.push("../App");
+          history.push("/");
         } else {
           alert("User does not existtttt!");
         }
-      })
-      .catch((error) => {
-        alert("User does not exist!");
       });
+    // .catch((error) => {
+    //   alert("User does not exist!");
+    // });
   };
 
   const handleChange = (e) => {
