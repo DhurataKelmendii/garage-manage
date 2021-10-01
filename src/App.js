@@ -42,8 +42,10 @@ function App() {
     <Router>
       <nav className="navbar sticky-top navbar-expand-lg navbar-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Manage garages
+          <a className="navbar-brand">
+            <Link to={"/App"} className="linki">
+              Manage garages
+            </Link>
           </a>
           <button
             className="navbar-toggler"
@@ -58,10 +60,6 @@ function App() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item ">
-                <Link to={"/Home"} className="nav-link"></Link>
-              </li>
-
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -86,7 +84,7 @@ function App() {
                   </li>
                 </ul>
               </li>
-              
+
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -204,7 +202,7 @@ function App() {
 
                   <li className="nav-link">
                     <Link to={"/ReservationsList"} className="link">
-                    Reservation List
+                      Reservation List
                     </Link>
                   </li>
                 </ul>
