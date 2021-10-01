@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import LoginForm from "./Login/LoginForm";
+import reportWebVitals from "./reportWebVitals"
 
 ReactDOM.render(
   <React.StrictMode>

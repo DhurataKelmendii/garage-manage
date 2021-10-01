@@ -1,9 +1,7 @@
 import react, { useState } from "react";
 import { Link, Route, Router, Switch, useHistory } from "react-router-dom";
 import axios from "axios";
-import "../Login/LoginForm.css";
-import RegisterForm from "../Register/RegisterForm";
-import App from "../App";
+import "./LoginForm.css";
 import { Container, Col, Form, Row, FormGroup, Label, Input } from "reactstrap";
 
 function LoginForm() {
@@ -17,17 +15,17 @@ function LoginForm() {
     axios
       .post("http://localhost:65424/Api/User/Login/", dataUser)
       .then((response) => {
-        console.log();
         if (response.data) {
           alert("Data Save Successfully");
-          history.push("/App");
+          localStorage.setItem('token', 'true');
+          history.push('/');
         } else {
           alert("User does not existtttt!");
         }
-      });
-    // .catch((error) => {
-    //   alert("User does not exist!");
-    // });
+      })
+    .catch((error) => {
+      alert("User does not exist!");
+    });
   };
 
   const handleChange = (e) => {
@@ -35,9 +33,9 @@ function LoginForm() {
   };
 
   return (
-    <Container className="Appp">
+    <Container>
       <main className="form-signin">
-        <Form>
+        <Form  className="form-signin-bg">
           <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
           <Row className="mb-3">
             <FormGroup as={Col}>

@@ -1,7 +1,7 @@
 import react, { useState } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import "../Register/RegisterForm.css";
+import "./RegisterForm.css";
 import {
   Container,
   Col,
@@ -10,7 +10,6 @@ import {
   FormGroup,
   Label,
   Input,
-  Button,
 } from "reactstrap";
 
 function RegisterForm() {
@@ -29,23 +28,27 @@ function RegisterForm() {
       .post("http://localhost:65424/Api/User/CreateUserApplication/", dataUser)
       .then((json) => {
         if (json.data) {
-          console.log(json.data.Status);
           alert("Data Save Successfully");
-          history.push("/");
+          localStorage.setItem('token', 'true');
+          history.push("/Dashboard");
         } else {
           alert("Data not Saved");
         }
       });
   };
 
+  const LoginForm = () => {
+    history.push("/LoginForm");
+  }
+
   const handleChange = (e) => {
     setData({ ...dataUser, [e.target.name]: e.target.value });
   };
 
   return (
-    <Container className="Appp">
+    <Container>
       <main className="form-signin">
-        <Form>
+        <Form className="form-signin-bg">
           <Row className="mb-3">
             <FormGroup as={Col}>
               <Label>Email</Label>
@@ -80,7 +83,16 @@ function RegisterForm() {
               placeholder="Address"
             />
           </FormGroup>
-
+          <FormGroup className="mb-3">
+            <Label>City</Label>
+            <Input
+              name="City"
+              type="text"
+              onChange={handleChange}
+              value={dataUser.City}
+              placeholder="City"
+            />
+          </FormGroup>
           <FormGroup className="mb-3">
             <Label>Phone Number</Label>
             <Input
@@ -92,24 +104,21 @@ function RegisterForm() {
             />
           </FormGroup>
 
-          <FormGroup className="mb-3">
-            <Label>City</Label>
-            <Input
-              name="City"
-              type="text"
-              onChange={handleChange}
-              value={dataUser.City}
-              placeholder="City"
-            />
-          </FormGroup>
 
-          <Col>
+          <Col className="btn-flex">
             <button
               type="button"
               onClick={() => RegisterForm()}
               className="btn btn-primary"
             >
               Register
+            </button>
+            <button
+              type="button"
+              onClick={() => LoginForm()}
+              className="btn btn-primary "
+            >
+              LogIn
             </button>
           </Col>
         </Form>
