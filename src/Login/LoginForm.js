@@ -55,7 +55,7 @@ function LoginForm() {
             <FormGroup as={Col}>
               <Label>Password</Label>
               <Input
-                type="text"
+                type="Password"
                 name="Password"
                 onChange={handleChange}
                 value={dataUser.Password}

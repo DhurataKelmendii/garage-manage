@@ -62,7 +62,7 @@ function RegisterForm() {
               <Label>Password</Label>
               <Input
                 name="Password"
-                type="text"
+                type="Password"
                 onChange={handleChange}
                 value={dataUser.Password}
                 placeholder="Password"
