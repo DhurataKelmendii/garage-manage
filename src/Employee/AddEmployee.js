@@ -27,7 +27,6 @@ function AddEmployee() {
       .post("http://localhost:65424/Api/Employee/CreateEmployee/", dataEmployee)
       .then((json) => {
         if (json.data) {
-          console.log(json.data.Status);
           alert("Data Save Successfully");
           history.push("/EmployeesList");
         } else {
