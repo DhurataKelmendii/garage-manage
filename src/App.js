@@ -1,5 +1,4 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
 import AddCar from "./Car/AddCar";
 import CarsList from "./Car/CarsList";
 import EditCar from "./Car/EditCar";
@@ -29,12 +28,12 @@ import EditCategory from "./Category/EditCategory";
 import AddReservation from "./Reservation/AddReservation";
 import ReservationsList from "./Reservation/ReservationsList";
 import EditReservation from "./Reservation/EditReservation";
+import UsersList from "./User/UsersList";
 import Home from "./Home";
 import LoginForm from "./Login/LoginForm";
 import RegisterForm from "./Register/RegisterForm";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
-import Image from "react-bootstrap/Image";
 import EditEmployee from "./Employee/EditEmployee";
 
 function App() {
@@ -289,6 +288,25 @@ function App() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
+                  User
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li className="nav-link">
+                    <Link to={"/UsersList"} className="link">
+                      Users List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   Roles
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -356,6 +374,7 @@ function App() {
         <Route exact path="/AddReservation" component={AddReservation} />
         <Route path="/EditReservation/:id" component={EditReservation} />
         <Route path="/ReservationsList" component={ReservationsList} />
+        <Route path="/UsersList" component={UsersList} />
       </Switch>
     </Router>
   );
