@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-import { Link, Route, Router, Switch, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./LoginForm.css";
 import { Container, Col, Form, Row, FormGroup, Label, Input } from "reactstrap";
@@ -16,11 +16,11 @@ function LoginForm() {
       .post("http://localhost:65424/Api/User/Login/", dataUser)
       .then((response) => {
         if (response.data) {
-          alert("Data Save Successfully");
+          alert("You're logged in!");
           localStorage.setItem('token', 'true');
           history.push('/');
         } else {
-          alert("User does not existtttt!");
+          alert("User does not exist!");
         }
       })
     .catch((error) => {
