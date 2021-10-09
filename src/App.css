@@ -62,3 +62,42 @@ a.linki {
   color: white;
   text-decoration: none;
 }
+
+.AboutUs {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  color: white;
+  text-decoration: none;
+  margin-top: 4rem;
+}
+
+.Footer {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  color: white;
+  text-decoration: none;
+  margin-top: 10rem;
+}
+
+.Services {
+  width: 100%;
+  height: 50px;
+  color: rgb(238, 230, 230);
+  text-decoration: none;
+  margin-top: 1rem;
+  text-align: center;
+}
+.Reservation {
+  border-radius: 15px;
+  padding: 20px;
+  background-color: rgba(250, 250, 250, 0.666);
+  color: rgb(119, 108, 108);
+}
+.Garage {
+  border-radius: 15px;
+  padding: 20px;
+  background-color: rgba(250, 250, 250, 0.666);
+  color: rgb(139, 133, 133);
+}

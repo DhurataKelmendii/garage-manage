@@ -34,7 +34,16 @@ import LoginForm from "../Login/LoginForm";
 import RegisterForm from "../Register/RegisterForm";
 import EditEmployee from "../Employee/EditEmployee";
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
-
+import {
+  Container,
+  Col,
+  Form,
+  Row,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+} from "reactstrap";
 
 function Dashboard() {
   const token = localStorage.getItem('token');
@@ -352,6 +361,43 @@ function Dashboard() {
         </div>
       </nav>
       <br />
+      <Container className="Services"> 
+      <div className="row">
+        <div className="col-lg-12 Services">
+            <h1 className="title">Services</h1>
+            <div className="row">
+           <div className="col-lg-6 Garage">Garage</div>
+           <div className="col-lg-6 Reservation">Reservation</div>
+           </div>
+        </div>
+        </div>
+      </Container>
+      <br/>
+      <br/>
+      <Container className="AboutUs">
+      <div className="row">
+          <h1 className="title">About Us</h1>
+          <p className="content">
+              React has been designed from the start for gradual adoption, and you can use as little or 
+              as much React as you need. Whether you want to get a taste of React, 
+              add some interactivity to a simple HTML page, or start a complex React-powered app, 
+              the links in this section will help you get started.
+          </p>
+      </div>
+      </Container>
+      <br/>
+      <Container className="Footer">
+      <div className="row">
+       <div className="col-lg-12 Footer">
+         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-itemm">
+              <p>Copyright © LuizaIzeti&DhurataKelmendi</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </Container>
+      
 
       <Switch>
         <Route exact path="/AddCar" component={AddCar} />
@@ -390,6 +436,8 @@ function Dashboard() {
         <Route path="/UsersList" component={UsersList} />
       </Switch>
     </Router>
+
+
   );
 }
 export default Dashboard;
