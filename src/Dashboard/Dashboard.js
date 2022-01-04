@@ -33,7 +33,13 @@ import Home from "../Home";
 import LoginForm from "../Login/LoginForm";
 import RegisterForm from "../Register/RegisterForm";
 import EditEmployee from "../Employee/EditEmployee";
-import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import {
   Container,
   Col,
@@ -44,13 +50,75 @@ import {
   Input,
   Button,
 } from "reactstrap";
+import "@progress/kendo-theme-material/dist/all.css";
+import { TileLayout } from "@progress/kendo-react-layout";
+import { useState } from "react";
+import ActiveJobs from "../components/ActiveJobs";
+import TotalJobViews from "../components/TotalJobViews";
+import MostPopularJob from "../components/MostPopularJob";
+import JobCredits from "../components/JobCredits";
 
+const initialPositions = [
+  {
+    col: 1,
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
+    col: 3,
+    colSpan: 1,
+    rowSpan: 1,
+  },
+  {
+    col: 4,
+    colSpan: 1,
+    rowSpan: 1,
+  },
+  {
+    col: 3,
+    colSpan: 2,
+    rowSpan: 2,
+  },
+];
+
+const getPositions = (initialPositions) => {
+  // Try to get positions from local storage
+  // If we have none in the storage then default to initial positions
+  return (
+    JSON.parse(localStorage.getItem("dashboard-positions")) || initialPositions
+  );
+};
 function Dashboard() {
-  const token = localStorage.getItem('token');
+  const [positions, setPositions] = useState(getPositions(initialPositions));
+
+  const widgets = [
+    {
+      header: "Total Garages",
+      body: <TotalJobViews />,
+    },
+    {
+      header: "Total Cars",
+      body: <ActiveJobs />,
+    },
+    {
+      header: "Total Buses",
+      body: <JobCredits />,
+    },
+    {
+      header: "Garage Status Graph ",
+      body: <MostPopularJob />,
+    },
+  ];
+
+  const handleReposition = (e) => {
+    setPositions(e.value);
+    localStorage.setItem("dashboard-positions", JSON.stringify(e.value));
+  };
+  const token = localStorage.getItem("token");
   const history = useHistory();
   const logOut = () => {
-    localStorage.removeItem('token');
-    history.push('/LoginForm');
+    localStorage.removeItem("token");
+    history.push("/LoginForm");
   };
 
   return (
@@ -360,44 +428,57 @@ function Dashboard() {
           </div>
         </div>
       </nav>
-      <br />
-      <Container className="Services"> 
-      <div className="row">
-        <div className="col-lg-12 Services">
-            <h1 className="title">Services</h1>
-            <div className="row">
-           <div className="col-lg-6 Garage">Garage</div>
-           <div className="col-lg-6 Reservation">Reservation</div>
-           </div>
-        </div>
-        </div>
-      </Container>
-      <br/>
-      <br/>
-      <Container className="AboutUs">
-      <div className="row">
-          <h1 className="title">About Us</h1>
-          <p className="content">
-              React has been designed from the start for gradual adoption, and you can use as little or 
-              as much React as you need. Whether you want to get a taste of React, 
-              add some interactivity to a simple HTML page, or start a complex React-powered app, 
-              the links in this section will help you get started.
-          </p>
+
+      <div className="Dashb">
+        <h1>Garage management</h1>
+        <TileLayout
+          style={{
+            backgroundColor: "rgba(252, 247, 247, 0.63)",
+            BorderRadius: "10px",
+          }}
+          className="tileLayout "
+          columns={4}
+          rowHeight={255}
+          positions={positions}
+          gap={{ rows: 10, columns: 10 }}
+          items={widgets}
+          onReposition={handleReposition}
+        />
       </div>
+
+      <Container className=" AboutUs ">
+        <div className=" col-md-10 Aboutt">
+          <div className="row">
+            <h1 className="title"></h1>
+            <div className="col-md-6 About1">
+              <p className="contentt">About Us</p>
+            </div>
+
+            <div className="col-md-6 About">
+              <p className="content">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </p>
+            </div>
+          </div>
+        </div>
       </Container>
-      <br/>
+
       <Container className="Footer">
-      <div className="row">
-       <div className="col-lg-12 Footer">
-         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-itemm">
-              <p>Copyright © LuizaIzeti&DhurataKelmendi</p>
-            </li>
-          </ul>
+        <div className="row">
+          <div className="col-lg-12 Footer">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-itemm">
+                <p>Copyright © LuizaIzeti&DhurataKelmendi</p>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
       </Container>
-      
 
       <Switch>
         <Route exact path="/AddCar" component={AddCar} />
@@ -436,8 +517,6 @@ function Dashboard() {
         <Route path="/UsersList" component={UsersList} />
       </Switch>
     </Router>
-
-
   );
 }
 export default Dashboard;
